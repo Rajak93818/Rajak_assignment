@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="nextpage2.css">
+</head>
+<body>
+    <div class="container" style="width: 500px; height:600px; margin-left: 100px;">
+        <h2>Let's add your first product</h2>
+
+        <form id="productForm">
+            <section>
+                <h3>Basic Details</h3>
+                <label for="productName">Product Name</label>
+                <input type="text" id="productName" placeholder="eg - anatomy book" required>
+
+                <label for="productDescription">Product Description</label>
+                <textarea id="productDescription" placeholder="Input text"></textarea>
+
+                <label>Add Image(s)</label>
+                <input type="file" id="productImage" accept="image/*">
+
+                <label>
+                    <input type="checkbox" id="hasSku" checked> This product has an SKU code
+                </label>
+                <input type="text" id="skuCode" placeholder="eg - PROD0001">
+
+                <label>
+                    <input type="checkbox" id="hasHsn"> This product has an HSN/SAC code
+                </label>
+            </section>
+
+            <section>
+                <h3>Pricing Details</h3>
+                <label>
+                    <input type="checkbox" id="inclusiveGST" checked> Price inclusive of GST
+                </label>
+
+                <label for="netPrice">Net Price</label>
+                <input type="number" id="netPrice" placeholder="eg - 80">
+
+                <label for="listPrice">List Price</label>
+                <input type="number" id="listPrice" placeholder="eg - 100">
+
+                <label for="discount">Discount Percentage</label>
+                <input type="number" id="discount" placeholder="eg - 40">
+
+                <label for="gstRate">GST Rate</label>
+                <input type="number" id="gstRate" placeholder="eg - 20">
+
+                <label for="shippingCharges">Shipping Charges (if any)</label>
+                <input type="number" id="shippingCharges" placeholder="eg - 40">
+
+                <label for="stockLevel">Stock Level</label>
+                <input type="number" id="stockLevel" placeholder="eg - 110">
+            </section>
+
+            <section>
+                <h3>Additional Details</h3>
+                <label for="brandName">Brand Name</label>
+                <input type="text" id="brandName" placeholder="eg - ABC Brand">
+
+                <label for="expiryDate">Expiry Date (if applicable)</label>
+                <input type="date" id="expiryDate">
+
+                <label for="category">Product Category</label>
+                <select id="category">
+                    <option value="books">Books</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="other">Other</option>
+                </select>
+            </section>
+
+            <div class="buttons">
+                <button type="button" onclick="goBack()">Back</button>
+                <button type="submit">Next</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6" style="margin-left: 250px; border: 2px solid black; height: 450px; width: 250px; padding: 10px;">
+        <div class="preview-card" style="text-align: center;">
+            <img src="product.jpg" alt="Product Image" class="product-image" style="height: 150px; width: 150px; display: block; margin: auto;">
+            <div class="preview-text" style=" height: auto; width: 100%; padding: 10px; margin-top: 10px;">
+                <h5>Product Title</h5>
+                <p>
+                    Esse minim eiusmod amet et incididunt magna consectetur laborun. Ipsum et cillum do exercitation nostrud nostrud.
+                    Consectetur Lorem nostrud sint adipisicing amet ipsum cupidatat.
+                </p>
+                <p><strong>RS 100 <span style="text-decoration: line-through; color: red;">RS 90</span></strong></p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById("productForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Product added successfully!");
+            
+        });
+
+        function goBack() {
+            alert("Going back to the previous page.");
+        }
+    </script>
+</body>
+</html>

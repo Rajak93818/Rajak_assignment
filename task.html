@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Theme Selection</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .selected {
+            background-color: #28a745 !important;
+            color: white !important;
+        }
+        .card {
+            height: 100%; 
+        }
+        .card-img-top {
+            height: 200px; 
+            object-fit: cover; 
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Apply Theme</h1>
+        
+        <div class="row g-4">  
+            <!-- Bags Theme (Recommended) -->
+            <div class="col-md-4 d-flex">
+                <div class="card shadow w-100">
+                    <img src="Backbag.jpg" class="card-img-top" alt="Bags Theme">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Bags Theme <span>(recommended)</span></h5>
+                        <button class="btn btn-primary w-100 apply-btn">Apply</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 d-flex">
+                <div class="card shadow w-100">
+                    <img src="flextheme.webp" class="card-img-top" alt="Flex Theme">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Flex Theme</h5>
+                        <button class="btn btn-primary w-100 apply-btn">Apply</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 d-flex">
+                <div class="card shadow w-100">
+                    <img src="ChicTheme.jpg" class="card-img-top" alt="Chic Theme">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Chic Theme</h5>
+                        <button class="btn btn-primary w-100 apply-btn">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Next Button (Right-Aligned) -->
+        <div class="d-flex justify-content-end mt-4">
+            <button id="next-btn" class="btn btn-primary px-4" disabled>Next</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".apply-btn");
+            const nextButton = document.getElementById("next-btn");
+            let selectedTheme = false; 
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    // Reset all buttons
+                    buttons.forEach(btn => {
+                        btn.textContent = "Apply";
+                        btn.classList.remove("selected", "btn-success");
+                        btn.classList.add("btn-primary");
+                    });
+
+                    // Mark the clicked button as selected
+                    this.textContent = "✔ Selected";
+                    this.classList.remove("btn-primary");
+                    this.classList.add("btn-success", "selected");
+
+                    selectedTheme = true;
+                    nextButton.removeAttribute("disabled"); 
+                });
+            });
+
+            // Navigate to a new page when clicking "Next"
+            nextButton.addEventListener("click", function () {
+                if (selectedTheme) {
+                    window.location.href = "nextpage.html"; 
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
